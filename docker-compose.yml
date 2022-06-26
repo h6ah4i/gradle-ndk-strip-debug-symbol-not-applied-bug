@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  build_env:
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /root/myapp
+      # - type: bind
+      #   source: /home/haruki/Desktop/build-tools-release
+      #   target: /root/studio-main
+    working_dir: /root/myapp
+    network_mode: "host"

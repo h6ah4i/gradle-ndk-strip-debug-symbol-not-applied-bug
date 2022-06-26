@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.h6ah4i.android.example.app'
+    compileSdkVersion 32
+
+    if (System.getenv('SET_NDK_VERSION_IN_APP_MODULE') == '1') {
+        ndkVersion '24.0.8215888'
+    }
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 32
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation project(':nativelib')
+}

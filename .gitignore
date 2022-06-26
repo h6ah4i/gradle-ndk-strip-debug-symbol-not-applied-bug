@@ -1,0 +1,17 @@
+/build/
+/.idea/
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/repository
+/captures
+
+*.iml
+
+hs_err_*.log
+
+*~
+*.bak
